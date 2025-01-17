@@ -3,12 +3,17 @@ import { GlobalStyles } from '../../constants/styles';
 import Button from './Button';
 
 const ErrorOverlay = ({ message, showButton, onConfirm }) => {
+	var button = '';
+
+	if (showButton) {
+		button = <Button onPress={onConfirm}>Okay</Button>;
+	}
+
 	return (
 		<View style={styles.container}>
 			<Text style={[styles.text, styles.title]}>An error ocurred!</Text>
 			<Text style={styles.text}>{message}</Text>
-			if(showButton)
-			<Button onPress={onConfirm}>Okay</Button>
+			{button}
 		</View>
 	);
 };
